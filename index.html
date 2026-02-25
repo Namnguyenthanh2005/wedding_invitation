@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wedding Invitation of Sarah & James - Join us for our special day!" />
+  <title>Sarah & James — Wedding Invitation</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body class="scroll-locked">
+
+  <!-- ==================== LOADING SCREEN ==================== -->
+  <div id="loading-screen" aria-live="polite" aria-label="Loading">
+    <div class="loading-content">
+      <div class="loading-rings">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+      </div>
+      <p class="loading-text">Loading...</p>
+    </div>
+  </div>
+
+  <!-- ==================== SCROLL PROGRESS BAR ==================== -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
+
+  <!-- ==================== FLOATING PARTICLES ==================== -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ==================== MUSIC PLAYER ==================== -->
+  <div id="music-player" aria-label="Music Player">
+    <button id="music-toggle-btn" aria-label="Toggle music player" title="Music">
+      <span class="music-icon" aria-hidden="true">♪</span>
+    </button>
+    <div id="music-panel" class="hidden" role="dialog" aria-label="Music playlist">
+      <div class="music-panel-header">
+        <h3>🎵 Background Music</h3>
+        <button id="music-close-btn" aria-label="Close music panel">✕</button>
+      </div>
+      <div id="now-playing" class="now-playing">
+        <span id="now-playing-icon" class="np-icon">▶</span>
+        <span id="now-playing-title">Select a song...</span>
+      </div>
+      <ul id="playlist" role="list" aria-label="Song playlist">
+        <li class="playlist-item active" data-index="0" role="listitem" tabindex="0">
+          <span class="song-icon">🎵</span>
+          <span class="song-title">A Thousand Years</span>
+          <span class="song-artist">Christina Perri</span>
+        </li>
+        <li class="playlist-item" data-index="1" role="listitem" tabindex="0">
+          <span class="song-icon">🎵</span>
+          <span class="song-title">Can't Help Falling in Love</span>
+          <span class="song-artist">Elvis Presley</span>
+        </li>
+        <li class="playlist-item" data-index="2" role="listitem" tabindex="0">
+          <span class="song-icon">🎵</span>
+          <span class="song-title">Perfect</span>
+          <span class="song-artist">Ed Sheeran</span>
+        </li>
+        <li class="playlist-item" data-index="3" role="listitem" tabindex="0">
+          <span class="song-icon">🎵</span>
+          <span class="song-title">All of Me</span>
+          <span class="song-artist">John Legend</span>
+        </li>
+      </ul>
+      <div class="music-controls">
+        <button id="btn-prev" aria-label="Previous song">⏮</button>
+        <button id="btn-play-pause" aria-label="Play or pause">▶</button>
+        <button id="btn-next" aria-label="Next song">⏭</button>
+      </div>
+      <div class="volume-control">
+        <label for="volume-slider">Volume</label>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.5" aria-label="Volume" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTRO / HERO SECTION ==================== -->
+  <section id="intro" class="section-intro parallax-bg" aria-label="Wedding introduction">
+    <div class="intro-overlay"></div>
+    <div class="intro-content">
+      <p class="intro-date reveal-fade">February 14, 2027</p>
+      <h1 class="intro-names reveal-fade">Sarah <span class="amp">&amp;</span> James</h1>
+      <p class="intro-subtitle reveal-fade">We're getting married!</p>
+      <div class="intro-divider reveal-fade">
+        <span></span><span class="heart">♥</span><span></span>
+      </div>
+      <p class="intro-location reveal-fade">📍 The Grand Rosewood Estate, Paris</p>
+      <button id="open-invitation-btn" class="btn-open reveal-fade" aria-label="Open wedding invitation">
+        Open Invitation
+      </button>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll down</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN CONTENT (unlocked after opening) ==================== -->
+  <main id="main-content" class="hidden-content" aria-label="Wedding invitation content">
+
+    <!-- ==================== BRIDE & GROOM ==================== -->
+    <section id="couple" class="section reveal-section" aria-label="Bride and Groom">
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">Our Story</p>
+          <h2 class="section-title reveal-up">The Happy Couple</h2>
+          <div class="title-divider reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+        </div>
+        <div class="couple-grid">
+          <div class="person-card reveal-left">
+            <div class="person-photo-wrap">
+              <div class="person-photo bride-photo" role="img" aria-label="Bride Sarah"></div>
+            </div>
+            <h3 class="person-name">Sarah Johnson</h3>
+            <p class="person-role">The Bride</p>
+            <p class="person-bio">A passionate artist and dreamer who believes that love is life's greatest masterpiece. Born and raised in Lyon, Sarah brings warmth and creativity to everything she touches.</p>
+          </div>
+
+          <div class="couple-center reveal-fade">
+            <div class="rings-icon" aria-hidden="true">💍</div>
+            <p class="couple-and">and</p>
+          </div>
+
+          <div class="person-card reveal-right">
+            <div class="person-photo-wrap">
+              <div class="person-photo groom-photo" role="img" aria-label="Groom James"></div>
+            </div>
+            <h3 class="person-name">James Williams</h3>
+            <p class="person-role">The Groom</p>
+            <p class="person-bio">An architect of spaces and relationships, James has always known that home is wherever Sarah is. Originally from London, he swept Sarah off her feet on a rainy Paris evening.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LOVE STORY TIMELINE ==================== -->
+    <section id="love-story" class="section section-alt reveal-section" aria-label="Love story timeline">
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">How It Happened</p>
+          <h2 class="section-title reveal-up">Our Love Story</h2>
+          <div class="title-divider reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal-left" aria-label="Timeline 2020: First Meeting">
+            <div class="timeline-marker"><span>2020</span></div>
+            <div class="timeline-content">
+              <h3>First Meeting</h3>
+              <p>We first met at a gallery opening in Paris. James admired Sarah's painting, and Sarah admired James's eye for beauty. A conversation turned into hours of laughter.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal-right" aria-label="Timeline 2021: First Date">
+            <div class="timeline-marker"><span>2021</span></div>
+            <div class="timeline-content">
+              <h3>First Date</h3>
+              <p>A candlelit dinner beside the Seine, followed by a moonlit walk to the Eiffel Tower. James called it "reconnaissance." Sarah knew it was destiny.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal-left" aria-label="Timeline 2022: Moving In Together">
+            <div class="timeline-marker"><span>2022</span></div>
+            <div class="timeline-content">
+              <h3>Moving In Together</h3>
+              <p>They found a cozy apartment in Montmartre. James designed the space; Sarah filled it with colour. Together they built something extraordinary.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal-right" aria-label="Timeline 2024: The Proposal">
+            <div class="timeline-marker"><span>2024</span></div>
+            <div class="timeline-content">
+              <h3>The Proposal</h3>
+              <p>On a rainy Thursday, James got down on one knee in their kitchen — flour on his face, half-baked croissants in the oven. Sarah said yes before he finished the question.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal-left" aria-label="Timeline 2027: The Wedding">
+            <div class="timeline-marker timeline-marker-end"><span>2027</span></div>
+            <div class="timeline-content">
+              <h3>Our Wedding Day ♥</h3>
+              <p>February 14th — the day two souls become one. We can't wait to celebrate this next chapter with the people we love most.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WEDDING EVENTS ==================== -->
+    <section id="events" class="section reveal-section" aria-label="Wedding events">
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">Save the Date</p>
+          <h2 class="section-title reveal-up">Wedding Details</h2>
+          <div class="title-divider reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+        </div>
+        <div class="events-grid">
+          <div class="event-card reveal-up">
+            <div class="event-icon" aria-hidden="true">💒</div>
+            <h3>Holy Ceremony</h3>
+            <p class="event-detail"><strong>Date:</strong> February 14, 2027</p>
+            <p class="event-detail"><strong>Time:</strong> 10:00 AM – 12:00 PM</p>
+            <p class="event-detail"><strong>Venue:</strong> Saint-Chapelle, Paris</p>
+            <p class="event-detail"><strong>Dress Code:</strong> Formal / Black Tie</p>
+          </div>
+          <div class="event-card reveal-up">
+            <div class="event-icon" aria-hidden="true">🥂</div>
+            <h3>Reception Dinner</h3>
+            <p class="event-detail"><strong>Date:</strong> February 14, 2027</p>
+            <p class="event-detail"><strong>Time:</strong> 6:00 PM – 11:00 PM</p>
+            <p class="event-detail"><strong>Venue:</strong> The Grand Rosewood Estate</p>
+            <p class="event-detail"><strong>Dress Code:</strong> Smart Elegant</p>
+          </div>
+          <div class="event-card reveal-up">
+            <div class="event-icon" aria-hidden="true">🎊</div>
+            <h3>After Party</h3>
+            <p class="event-detail"><strong>Date:</strong> February 14, 2027</p>
+            <p class="event-detail"><strong>Time:</strong> 11:00 PM – 2:00 AM</p>
+            <p class="event-detail"><strong>Venue:</strong> The Rosewood Terrace</p>
+            <p class="event-detail"><strong>Dress Code:</strong> Casual Chic</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== GOOGLE MAPS ==================== -->
+    <section id="location" class="section section-alt reveal-section" aria-label="Wedding location map">
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">Find Us</p>
+          <h2 class="section-title reveal-up">Location</h2>
+          <div class="title-divider reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+        </div>
+        <p class="location-address reveal-up">📍 The Grand Rosewood Estate, 24 Avenue Montaigne, 75008 Paris, France</p>
+        <div class="map-container reveal-up">
+          <iframe
+            title="Wedding venue location on Google Maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.318!2d2.3020!3d48.8658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc45d71af1f%3A0x64d4b2bc58a3bb04!2sAvenue%20Montaigne%2C%20Paris%2C%20France!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Map of wedding venue location">
+          </iframe>
+        </div>
+        <div class="direction-btns reveal-up">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Avenue+Montaigne+Paris+France" target="_blank" rel="noopener noreferrer" class="btn-direction">
+            🗺️ Get Directions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PHOTO GALLERY ==================== -->
+    <section id="gallery" class="section reveal-section" aria-label="Photo gallery">
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">Memories</p>
+          <h2 class="section-title reveal-up">Photo Gallery</h2>
+          <div class="title-divider reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal-zoom" tabindex="0" role="button" aria-label="Gallery photo 1: First date" data-caption="Our first date beside the Seine">
+            <div class="gallery-img gallery-img-1" role="img" aria-label="First date photo"></div>
+            <div class="gallery-overlay"><span>First Date</span></div>
+          </div>
+          <div class="gallery-item reveal-zoom" tabindex="0" role="button" aria-label="Gallery photo 2: Paris walk" data-caption="Walking through Montmartre">
+            <div class="gallery-img gallery-img-2" role="img" aria-label="Paris walk photo"></div>
+            <div class="gallery-overlay"><span>Paris Walk</span></div>
+          </div>
+          <div class="gallery-item reveal-zoom" tabindex="0" role="button" aria-label="Gallery photo 3: The proposal" data-caption="The magical proposal moment">
+            <div class="gallery-img gallery-img-3" role="img" aria-label="The proposal photo"></div>
+            <div class="gallery-overlay"><span>The Proposal</span></div>
+          </div>
+          <div class="gallery-item reveal-zoom" tabindex="0" role="button" aria-label="Gallery photo 4: Engagement" data-caption="Engagement celebration">
+            <div class="gallery-img gallery-img-4" role="img" aria-label="Engagement photo"></div>
+            <div class="gallery-overlay"><span>Engaged!</span></div>
+          </div>
+          <div class="gallery-item reveal-zoom" tabindex="0" role="button" aria-label="Gallery photo 5: Travel together" data-caption="Travelling together">
+            <div class="gallery-img gallery-img-5" role="img" aria-label="Travel photo"></div>
+            <div class="gallery-overlay"><span>Adventures</span></div>
+          </div>
+          <div class="gallery-item reveal-zoom" tabindex="0" role="button" aria-label="Gallery photo 6: Pre-wedding" data-caption="Pre-wedding photoshoot">
+            <div class="gallery-img gallery-img-6" role="img" aria-label="Pre-wedding photo"></div>
+            <div class="gallery-overlay"><span>Pre-Wedding</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LIGHTBOX ==================== -->
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+      <button id="lightbox-close" class="lightbox-close" aria-label="Close lightbox">✕</button>
+      <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Previous photo">‹</button>
+      <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Next photo">›</button>
+      <div class="lightbox-content">
+        <div id="lightbox-img" class="lightbox-img" role="img" aria-label="Enlarged gallery photo"></div>
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- ==================== COUNTDOWN ==================== -->
+    <section id="countdown-section" class="section section-alt parallax-bg-dark reveal-section" aria-label="Countdown to wedding">
+      <div class="countdown-overlay"></div>
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">Count Every Moment</p>
+          <h2 class="section-title section-title-light reveal-up">Until We Say "I Do"</h2>
+          <div class="title-divider title-divider-light reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+        </div>
+        <div class="countdown-grid" id="countdown-grid" aria-live="polite">
+          <div class="countdown-item reveal-up">
+            <div class="countdown-number" id="days">000</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item reveal-up">
+            <div class="countdown-number" id="hours">00</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item reveal-up">
+            <div class="countdown-number" id="minutes">00</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-item reveal-up">
+            <div class="countdown-number" id="seconds">00</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+        <p class="countdown-date reveal-up">February 14, 2027 — 10:00 AM (Paris Time)</p>
+      </div>
+    </section>
+
+    <!-- ==================== RSVP ==================== -->
+    <section id="rsvp" class="section reveal-section" aria-label="RSVP form">
+      <div class="section-container">
+        <div class="section-header">
+          <p class="section-tag reveal-up">Join Us</p>
+          <h2 class="section-title reveal-up">RSVP</h2>
+          <div class="title-divider reveal-up"><span></span><span class="heart-sm">♥</span><span></span></div>
+          <p class="section-desc reveal-up">Please respond by January 14, 2027. We look forward to celebrating with you!</p>
+        </div>
+        <form id="rsvp-form" class="rsvp-form reveal-up" novalidate aria-label="RSVP submission form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guest-name">Full Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="guest-name" name="name" placeholder="Your full name" required autocomplete="name" />
+              <span class="field-error" id="error-name" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label for="guest-email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="guest-email" name="email" placeholder="your@email.com" required autocomplete="email" />
+              <span class="field-error" id="error-email" role="alert"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guest-count">Number of Guests</label>
+              <select id="guest-count" name="guests" aria-label="Number of guests attending">
+                <option value="1">1 — Just me</option>
+                <option value="2" selected>2 — Me and my partner</option>
+                <option value="3">3 guests</option>
+                <option value="4">4 guests</option>
+                <option value="5+">5+ guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="attendance">Attendance</label>
+              <select id="attendance" name="attendance" aria-label="Will you attend?">
+                <option value="yes">✅ Joyfully accept</option>
+                <option value="no">❌ Regretfully decline</option>
+                <option value="maybe">🤔 Will let you know</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="meal-choice">Meal Preference</label>
+            <div class="meal-options" role="group" aria-label="Meal preference options">
+              <label class="radio-label">
+                <input type="radio" name="meal" value="standard" checked /> Standard Menu
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="meal" value="vegetarian" /> Vegetarian
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="meal" value="vegan" /> Vegan
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="meal" value="glutenfree" /> Gluten-Free
+              </label>
+            </div>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="message">Message to the Couple</label>
+            <textarea id="message" name="message" placeholder="Share your wishes or any special requirements..." rows="4" aria-label="Message for the couple"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn-submit" aria-label="Submit RSVP">
+              Send RSVP 💌
+            </button>
+          </div>
+        </form>
+        <div id="rsvp-success" class="rsvp-success hidden" role="status" aria-live="polite">
+          <div class="success-icon" aria-hidden="true">💌</div>
+          <h3>Thank You!</h3>
+          <p>Your RSVP has been received. We can't wait to celebrate with you!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer" class="footer" role="contentinfo" aria-label="Wedding footer">
+      <div class="footer-content">
+        <div class="footer-names">Sarah <span class="amp">&amp;</span> James</div>
+        <div class="footer-date">February 14, 2027</div>
+        <div class="footer-divider"><span></span><span class="heart">♥</span><span></span></div>
+        <p class="footer-message">
+          Thank you for being part of our love story.<br>
+          Your presence is the greatest gift we could ask for.
+        </p>
+        <p class="footer-quote">"The best thing to hold onto in life is each other." — Audrey Hepburn</p>
+        <p class="footer-copy">&copy; 2027 Sarah &amp; James. Made with ♥ for our special day.</p>
+      </div>
+      <div class="footer-petals" aria-hidden="true">
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+        <span class="petal">🌸</span>
+      </div>
+    </footer>
+
+  </main><!-- /#main-content -->
+
+  <!-- Hidden audio element for music -->
+  <audio id="audio-player" preload="none" aria-hidden="true"></audio>
+
+  <!-- JavaScript -->
+  <script src="js/countdown.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
