@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --cream: #f8f4ef;
   --blush: #f2d6d0;
   --rose: #e7b7b1;
@@ -24,7 +24,7 @@ html {
 body {
   font-family: "Josefin Sans", sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at top, #fffaf6 0%, var(--cream) 55%, #f2ede7 100%);
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 244, 239, 0.7));
   line-height: 1.6;
 }
 
@@ -177,8 +177,6 @@ main {
 
 .story-invite {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 244, 239, 0.7));
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
 }
 
 .invite-header {
@@ -355,18 +353,15 @@ main {
   margin-bottom: 6px;
 }
 
-.calendar-section {
-  display: grid;
-  place-items: center;
-}
+.calendar-section {  display: grid;  place-items: center;  max-width: none; padding: 0;}
 
-.calendar {
-  width: min(100%, 420px);
+.calendar {width: 100%;
 }
 
 .detail-panel {
-  padding: 16px 12px;
-  
+  position: relative;
+  padding: 24px 16px 32px;
+  min-height: clamp(50vh, 65vh, 65vh);
   border-radius: var(--radius-lg);
 }
 
@@ -380,41 +375,50 @@ main {
 }
 
 .panel-crest {
-  width: 64px;
+  width: 121px;
   height: 64px;
-  border-radius: 50%;
-  border: 1px solid rgba(176, 138, 91, 0.4);
   display: grid;
   place-items: center;
   font-family: "Cormorant Garamond", serif;
   color: var(--gold);
   margin: 0 auto 4px;
+  text-align: center;
   
 }
 
 .panel-sub {
-  font-size: 12px;
+  padding-top: 4vh;
+  font-size: clamp(16px, 1.65vw, 21px);
   text-transform: uppercase;
   letter-spacing: 1px;
   color: rgba(61, 53, 50, 0.6);
+  text-align: center;
+  margin: 6px 0;
 }
 
 .panel-title {
   font-family: "Great Vibes", cursive;
-  font-size: 36px;
+  font-size: clamp(42px, 8.4vw, 69px);
   color: var(--gold);
+  text-align: center;
+  line-height: 1.05;
+  margin: 6px 0 10px;
 }
 
 .panel-address {
-  font-size: 13px;
+  font-size: clamp(18px, 1.95vw, 24px);
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-align: center;
+  margin: 6px 0 10px;
 }
 
 .panel-time {
   font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
+  font-size: clamp(33px, 6vw, 51px);
   color: var(--ink);
+  text-align: center;
+  margin: 6px 0 10px;
 }
 
 .panel-date {
@@ -422,11 +426,13 @@ main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: clamp(16px, 1.65vw, 21px);
   text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
   padding: 10px 0;
+  text-align: center;
+  margin: 8px 0 12px;
 }
 
 .panel-date::before,
@@ -437,20 +443,24 @@ main {
   right: 18%;
   height: 1px;
   background: rgba(176, 138, 91, 0.55);
+  text-align: center;
 }
 
 .panel-date::before {
   top: 2px;
+  text-align: center
 }
 
 .panel-date::after {
   bottom: 2px;
+  text-align: center;
 }
 
 .panel-date-main {
   font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
+  font-size: clamp(24px, 4.2vw, 36px);
   color: var(--gold);
+  text-align: center;
 }
 
 .panel-pin {
@@ -461,6 +471,7 @@ main {
   transform: rotate(-45deg);
   margin: 6px auto 0;
   position: relative;
+  text-align: center;
 }
 
 .panel-pin::after {
@@ -472,6 +483,7 @@ main {
   background: #fff;
   top: 6px;
   left: 6px;
+  text-align: center;
 }
 
 .panel-link {
@@ -481,23 +493,23 @@ main {
   color: var(--gold);
   padding: 6px 14px;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 12px;
+  font-size: clamp(16px, 1.8vw, 21px);
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
 .calendar {
-  padding: 18px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.2));
   color: #fff;
   box-shadow: var(--shadow);
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.2)), url("../assets/images/anh1.jpg");
   background-size: cover;
-  background-position: center;
-}
+  background-position: center;  padding: 32px 20px;}
 
 .calendar-header {
+  color: #fff;
   text-align: center;
   font-family: "Cormorant Garamond", serif;
   font-size: 28px;
@@ -575,6 +587,206 @@ main {
 }
 
 
+
+.timeline-section {
+  background: linear-gradient(180deg, #f8f4ef, #fdfcfa);
+  padding: 60px 20px;
+}
+
+.timeline-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(52px, 9vw, 80px);
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+
+.timeline-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 36px;
+  padding: 20px;
+  position: relative;
+  padding-left: 5vh;
+}
+
+.timeline-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 35vw !important;
+  top: 0;
+  bottom: 0;
+  width:3px;
+  background: linear-gradient(to bottom, transparent, var(--gold) 5%, var(--gold) 95%, transparent);
+}
+
+.timeline-event {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  position: relative;
+}
+
+.timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  padding-top: 10px;
+  padding-left: 25vw;
+  text-align: right;
+}
+
+.timeline-icon {
+  font-size: 38px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items:right ;
+  justify-content: flex-start;
+  background: #f8f4ef;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  filter: sepia(0.2) brightness(0.98);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-right {
+  text-align: left;
+  padding-left: 10vw;
+}
+
+.timeline-time {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.5px;
+  text-align: left;
+ /* Hiện ... nếu quá dài */
+}
+
+.timeline-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.timeline-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.3px;
+}
+
+.timeline-date {
+  font-size: 11px;
+  color: rgba(61, 53, 50, 0.5);
+  letter-spacing: 0.5px;
+
+  font-weight: 500;
+  
+}
+
+@media (max-width: 600px) {
+  .timeline-wrapper {
+    max-width: 100%;
+    gap: 28px;
+    padding-left: 10px;
+  }
+  
+  .timeline-event {
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+  }
+  
+  .timeline-wrapper::before {
+    left: 95px;
+  }
+  
+  .timeline-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+  
+  .timeline-left {
+    gap: 8px;
+  }
+}
+
+.dresscode-section {
+  background: linear-gradient(180deg, #fdfcfa, #f8f4ef);
+  padding: 5vw 20px 80px;
+  text-align: center;
+}
+
+.dresscode-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(52px, 9vw, 80px);
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.dresscode-subtitle {
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(61, 53, 50, 0.65);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.dresscode-palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.color-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.color-circle:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+@media (min-width: 768px) {
+  .color-circle {
+    width: 60px;
+    height: 60px;
+    gap: 12px;
+  }
+  
+  .dresscode-palette {
+    gap: 12px;
+  }
+}
 .gallery-grid {
   display: grid;
   gap: 16px;
@@ -716,7 +928,206 @@ main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .gallery-grid {
+  
+.timeline-section {
+  background: linear-gradient(180deg, #f8f4ef, #fdfcfa);
+  padding: 60px 20px;
+}
+
+.timeline-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(52px, 9vw, 80px);
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+
+.timeline-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 36px;
+  padding: 20px;
+  position: relative;
+}
+
+.timeline-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 45%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--gold) 5%, var(--gold) 95%, transparent);
+}
+
+.timeline-event {
+  display: grid;
+  grid-template-columns: 45% 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  position: relative;
+}
+
+.timeline-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 12px;
+}
+
+.timeline-icon {
+  font-size: 38px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f4ef;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  filter: sepia(0.2) brightness(0.98);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-icon img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  display: block;
+}
+
+.timeline-right {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.timeline-time {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.5px;
+}
+
+.timeline-title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.timeline-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--gold);
+  letter-spacing: 0.3px;
+}
+
+.timeline-date {
+  font-size: 11px;
+  color: rgba(61, 53, 50, 0.5);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .timeline-wrapper {
+    max-width: 100%;
+    gap: 28px;
+    padding-left: 0;
+  }
+  
+  .timeline-event {
+    grid-template-columns: 45% 1fr;
+    gap: 16px;
+  }
+  
+  .timeline-wrapper::before {
+    left: 45%;
+  }
+  
+  .timeline-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+  
+  .timeline-left {
+    gap: 8px;
+  }
+}
+
+.dresscode-section {
+  background: linear-gradient(180deg, #fdfcfa, #f8f4ef);
+  padding: 60px 20px 80px;
+  text-align: center;
+}
+
+.dresscode-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(52px, 9vw, 80px);
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.dresscode-subtitle {
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(61, 53, 50, 0.65);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+
+.dresscode-palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.color-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.color-circle:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+@media (min-width: 768px) {
+  .color-circle {
+    width: 60px;
+    height: 60px;
+    gap: 12px;
+  }
+  
+  .dresscode-palette {
+    gap: 12px;
+  }
+}
+.gallery-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -747,3 +1158,7 @@ main {
     gap: 12px;
   }
 }
+
+
+
+

@@ -22,7 +22,8 @@ const setPlaying = (isPlaying) => {
 
 if (musicToggle && bgMusic) {
   const savedState = localStorage.getItem(musicStateKey);
-  if (savedState === "on") {
+
+  if (savedState === null || savedState === "on") {
     setPlaying(true);
   }
 
