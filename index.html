@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wedding Invitation - Join us to celebrate our special day" />
+  <title>Wedding Invitation 💍</title>
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loading-screen" class="loading-screen" aria-hidden="true">
+    <div class="loading-content">
+      <div class="loading-rings">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+      </div>
+      <p class="loading-text">Loading our love story…</p>
+    </div>
+  </div>
+
+  <!-- ===== SCROLL PROGRESS BAR ===== -->
+  <div id="scroll-progress" class="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ===== PARTICLES BACKGROUND ===== -->
+  <canvas id="particles-canvas" class="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ===== MUSIC PLAYER ===== -->
+  <div id="music-player" class="music-player" aria-label="Music Player">
+    <button id="music-toggle" class="music-toggle-btn" aria-label="Toggle music" title="Toggle Music">
+      <span class="music-icon">🎵</span>
+      <span class="music-waves">
+        <span class="wave"></span>
+        <span class="wave"></span>
+        <span class="wave"></span>
+      </span>
+    </button>
+    <div id="music-panel" class="music-panel" role="dialog" aria-label="Music selection panel">
+      <div class="music-panel-header">
+        <span>🎶 Choose a Song</span>
+        <button id="music-panel-close" class="music-panel-close" aria-label="Close music panel">✕</button>
+      </div>
+      <div class="now-playing">
+        <div class="now-playing-info">
+          <span id="song-title" class="song-title">Select a song</span>
+          <span id="song-artist" class="song-artist"></span>
+        </div>
+        <div class="playback-controls">
+          <button id="prev-btn" class="ctrl-btn" aria-label="Previous song">⏮</button>
+          <button id="play-pause-btn" class="ctrl-btn play-btn" aria-label="Play or pause">▶</button>
+          <button id="next-btn" class="ctrl-btn" aria-label="Next song">⏭</button>
+        </div>
+        <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume" />
+      </div>
+      <ul id="playlist" class="playlist" role="list">
+        <!-- Playlist items injected by music.js -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== MAIN CONTENT (locked until opened) ===== -->
+  <main id="main-content" class="main-content locked" aria-hidden="true">
+
+    <!-- ===== INTRO / HERO SECTION ===== -->
+    <section id="intro" class="section hero-section" aria-label="Invitation hero">
+      <div class="hero-bg parallax-bg" data-speed="0.4"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-sub animate-fade-in">Together with their families</p>
+        <h1 class="hero-names animate-slide-up">
+          <span class="name-groom">Anh Hoa</span>
+          <span class="hero-ampersand animate-zoom">&amp;</span>
+          <span class="name-bride">Thêu</span>
+        </h1>
+        <p class="hero-date animate-fade-in delay-3">March 15, 2026</p>
+        <div class="hero-divider animate-fade-in delay-4">
+          <span class="divider-line"></span>
+          <span class="divider-icon">💍</span>
+          <span class="divider-line"></span>
+        </div>
+        <p class="hero-invite animate-fade-in delay-5">request the honour of your presence</p>
+      </div>
+      <!-- Scroll down indicator -->
+      <div class="scroll-hint animate-bounce" aria-hidden="true">
+        <span>Scroll down</span>
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z" fill="currentColor"/></svg>
+      </div>
+    </section>
+
+    <!-- ===== BRIDE & GROOM SECTION ===== -->
+    <section id="couple" class="section couple-section" aria-label="Bride and Groom">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">The Happy Couple</p>
+          <h2 class="section-title">Bride &amp; Groom</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+        </div>
+
+        <div class="couple-grid">
+          <!-- Groom -->
+          <div class="person-card reveal slide-left">
+            <div class="person-photo-wrap">
+              <div class="person-photo person-photo-groom" style="background-image: url('assets/images/groom.jpg')">
+                <div class="photo-placeholder">👨</div>
+              </div>
+              <div class="photo-frame"></div>
+            </div>
+            <div class="person-info">
+              <h3 class="person-name">Nguyễn Anh Hoa</h3>
+              <p class="person-role">Groom</p>
+              <p class="person-desc">A kind-hearted soul who found his forever in the most unexpected moment. His laughter fills every room, and his love knows no bounds.</p>
+              <div class="person-parents">
+                <p>Son of Mr. &amp; Mrs. Nguyễn Văn Nam</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Heart separator -->
+          <div class="couple-heart reveal">
+            <span class="heart-icon animate-pulse">❤</span>
+          </div>
+
+          <!-- Bride -->
+          <div class="person-card reveal slide-right">
+            <div class="person-photo-wrap">
+              <div class="person-photo person-photo-bride" style="background-image: url('assets/images/bride.jpg')">
+                <div class="photo-placeholder">👩</div>
+              </div>
+              <div class="photo-frame"></div>
+            </div>
+            <div class="person-info">
+              <h3 class="person-name">Trần Thị Thêu</h3>
+              <p class="person-role">Bride</p>
+              <p class="person-desc">Gentle, radiant, and full of grace. She brings warmth wherever she goes, and her smile is the most beautiful thing he has ever seen.</p>
+              <div class="person-parents">
+                <p>Daughter of Mr. &amp; Mrs. Trần Văn Minh</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LOVE STORY TIMELINE ===== -->
+    <section id="story" class="section story-section" aria-label="Love Story">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">Our Journey</p>
+          <h2 class="section-title">Love Story</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal" data-year="2021">
+            <div class="timeline-dot">
+              <span class="dot-inner">☕</span>
+            </div>
+            <div class="timeline-card slide-left">
+              <span class="timeline-date">June 2021</span>
+              <h3 class="timeline-title">First Meeting</h3>
+              <p class="timeline-text">We met at a coffee shop on a rainy afternoon. One accidental glance turned into hours of conversation. Neither of us wanted to leave.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal" data-year="2022">
+            <div class="timeline-dot">
+              <span class="dot-inner">🌸</span>
+            </div>
+            <div class="timeline-card slide-right">
+              <span class="timeline-date">February 2022</span>
+              <h3 class="timeline-title">First Date</h3>
+              <p class="timeline-text">He surprised her with a picnic under the cherry blossoms. She said it was the most beautiful thing anyone had ever done for her.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal" data-year="2023">
+            <div class="timeline-dot">
+              <span class="dot-inner">🌍</span>
+            </div>
+            <div class="timeline-card slide-left">
+              <span class="timeline-date">August 2023</span>
+              <h3 class="timeline-title">First Trip Together</h3>
+              <p class="timeline-text">They explored the mountains of Đà Lạt together. Long walks, breathtaking views, and a thousand shared laughs sealed their bond forever.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal" data-year="2024">
+            <div class="timeline-dot">
+              <span class="dot-inner">💍</span>
+            </div>
+            <div class="timeline-card slide-right">
+              <span class="timeline-date">December 2024</span>
+              <h3 class="timeline-title">The Proposal</h3>
+              <p class="timeline-text">On Christmas Eve, surrounded by candles and flowers, he got down on one knee. Through happy tears she said YES – and their forever began.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal" data-year="2026">
+            <div class="timeline-dot">
+              <span class="dot-inner">💒</span>
+            </div>
+            <div class="timeline-card slide-left">
+              <span class="timeline-date">March 15, 2026</span>
+              <h3 class="timeline-title">The Wedding</h3>
+              <p class="timeline-text">The beginning of their greatest adventure together. We invite you to be part of this magical day and celebrate love with us.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WEDDING DETAILS ===== -->
+    <section id="details" class="section details-section" aria-label="Wedding Details">
+      <div class="details-bg parallax-bg" data-speed="0.3"></div>
+      <div class="details-overlay"></div>
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">Save The Date</p>
+          <h2 class="section-title">Wedding Details</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+        </div>
+
+        <div class="details-grid">
+          <div class="detail-card reveal slide-up">
+            <div class="detail-icon">📅</div>
+            <h3 class="detail-title">Date &amp; Time</h3>
+            <p class="detail-info">Sunday, March 15, 2026</p>
+            <p class="detail-sub">Ceremony begins at 10:00 AM</p>
+            <p class="detail-sub">Reception at 12:00 PM</p>
+          </div>
+
+          <div class="detail-card reveal slide-up delay-2">
+            <div class="detail-icon">📍</div>
+            <h3 class="detail-title">Ceremony Venue</h3>
+            <p class="detail-info">The Grand Rose Garden</p>
+            <p class="detail-sub">123 Blossom Street</p>
+            <p class="detail-sub">Hà Nội, Vietnam</p>
+          </div>
+
+          <div class="detail-card reveal slide-up delay-3">
+            <div class="detail-icon">🍽️</div>
+            <h3 class="detail-title">Reception</h3>
+            <p class="detail-info">Lotus Banquet Hall</p>
+            <p class="detail-sub">456 Harmony Avenue</p>
+            <p class="detail-sub">Hà Nội, Vietnam</p>
+          </div>
+
+          <div class="detail-card reveal slide-up delay-4">
+            <div class="detail-icon">👗</div>
+            <h3 class="detail-title">Dress Code</h3>
+            <p class="detail-info">Semi-Formal Attire</p>
+            <p class="detail-sub">Pastel and floral tones welcome</p>
+            <p class="detail-sub">Please avoid wearing white</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COUNTDOWN TIMER ===== -->
+    <section id="countdown" class="section countdown-section" aria-label="Countdown Timer">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">Counting Down</p>
+          <h2 class="section-title">Days Until We Say "I Do"</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+        </div>
+
+        <div class="countdown-grid reveal" id="countdown-timer">
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-days">
+              <span class="number-display">00</span>
+            </div>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-hours">
+              <span class="number-display">00</span>
+            </div>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-minutes">
+              <span class="number-display">00</span>
+            </div>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-unit">
+            <div class="countdown-number" id="cd-seconds">
+              <span class="number-display">00</span>
+            </div>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+
+        <p id="countdown-message" class="countdown-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ===== GOOGLE MAP ===== -->
+    <section id="location" class="section map-section" aria-label="Location Map">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">Find Us</p>
+          <h2 class="section-title">Venue Location</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+        </div>
+        <div class="map-wrapper reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096!2d105.8341598!3d21.0277644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2sHoan%20Kiem%20Lake!5e0!3m2!1sen!2s!4v1700000000000"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Wedding venue location on Google Maps"
+          ></iframe>
+        </div>
+        <div class="map-directions reveal">
+          <a href="https://maps.google.com/?q=Hoan+Kiem+Lake+Hanoi" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            📍 Get Directions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PHOTO GALLERY ===== -->
+    <section id="gallery" class="section gallery-section" aria-label="Photo Gallery">
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">Our Memories</p>
+          <h2 class="section-title">Photo Gallery</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Gallery items — src replaced with gradient placeholders; swap for real images -->
+          <div class="gallery-item reveal" data-index="0" tabindex="0" role="button" aria-label="Open photo 1">
+            <div class="gallery-img" style="background: linear-gradient(135deg, #f8b4c8, #f6d0e0);">
+              <span class="gallery-emoji">📸</span>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+            </div>
+          </div>
+          <div class="gallery-item reveal delay-1" data-index="1" tabindex="0" role="button" aria-label="Open photo 2">
+            <div class="gallery-img" style="background: linear-gradient(135deg, #c8e6c9, #a5d6a7);">
+              <span class="gallery-emoji">🌸</span>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+            </div>
+          </div>
+          <div class="gallery-item reveal delay-2" data-index="2" tabindex="0" role="button" aria-label="Open photo 3">
+            <div class="gallery-img" style="background: linear-gradient(135deg, #bbdefb, #90caf9);">
+              <span class="gallery-emoji">💑</span>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+            </div>
+          </div>
+          <div class="gallery-item reveal delay-1" data-index="3" tabindex="0" role="button" aria-label="Open photo 4">
+            <div class="gallery-img" style="background: linear-gradient(135deg, #ffe0b2, #ffcc80);">
+              <span class="gallery-emoji">🌹</span>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+            </div>
+          </div>
+          <div class="gallery-item reveal delay-2" data-index="4" tabindex="0" role="button" aria-label="Open photo 5">
+            <div class="gallery-img" style="background: linear-gradient(135deg, #e1bee7, #ce93d8);">
+              <span class="gallery-emoji">💐</span>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+            </div>
+          </div>
+          <div class="gallery-item reveal delay-3" data-index="5" tabindex="0" role="button" aria-label="Open photo 6">
+            <div class="gallery-img" style="background: linear-gradient(135deg, #fce4ec, #f48fb1);">
+              <span class="gallery-emoji">💍</span>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox" hidden>
+      <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">✕</button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+        <div class="lightbox-display" id="lightbox-display">
+          <!-- Filled by JS -->
+        </div>
+        <button class="lightbox-next" id="lightbox-next" aria-label="Next photo">&#8250;</button>
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <!-- ===== RSVP FORM ===== -->
+    <section id="rsvp" class="section rsvp-section" aria-label="RSVP">
+      <div class="rsvp-bg parallax-bg" data-speed="0.3"></div>
+      <div class="rsvp-overlay"></div>
+      <div class="section-container">
+        <div class="section-header reveal">
+          <p class="section-label">Will You Join Us?</p>
+          <h2 class="section-title">RSVP</h2>
+          <div class="title-ornament">✦ ✦ ✦</div>
+          <p class="section-desc">Please respond by March 1, 2026</p>
+        </div>
+
+        <div class="rsvp-form-wrap reveal">
+          <form id="rsvp-form" class="rsvp-form" novalidate>
+            <div class="form-group">
+              <label for="rsvp-name" class="form-label">Full Name <span class="required">*</span></label>
+              <input type="text" id="rsvp-name" name="name" class="form-input" placeholder="Your full name" required autocomplete="name" />
+              <span class="form-error" id="error-name"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-email" class="form-label">Email Address <span class="required">*</span></label>
+              <input type="email" id="rsvp-email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email" />
+              <span class="form-error" id="error-email"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-phone" class="form-label">Phone Number</label>
+              <input type="tel" id="rsvp-phone" name="phone" class="form-input" placeholder="+84 xxx xxx xxx" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Will you attend? <span class="required">*</span></label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="attendance" value="yes" required />
+                  <span class="radio-custom"></span>
+                  Joyfully accepts
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="attendance" value="no" />
+                  <span class="radio-custom"></span>
+                  Regretfully declines
+                </label>
+              </div>
+              <span class="form-error" id="error-attendance"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-guests" class="form-label">Number of Guests</label>
+              <select id="rsvp-guests" name="guests" class="form-input form-select">
+                <option value="1">1 person (just me)</option>
+                <option value="2">2 persons</option>
+                <option value="3">3 persons</option>
+                <option value="4">4+ persons</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-dietary" class="form-label">Dietary Requirements</label>
+              <input type="text" id="rsvp-dietary" name="dietary" class="form-input" placeholder="e.g. vegetarian, allergies…" />
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-message" class="form-label">Message to the Couple</label>
+              <textarea id="rsvp-message" name="message" class="form-input form-textarea" placeholder="Share your wishes, blessings, or a favorite memory…" rows="4"></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary">
+                <span class="btn-text">Send RSVP 💌</span>
+                <span class="btn-loader" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div id="rsvp-success" class="rsvp-success" hidden>
+              <span class="success-icon">🎉</span>
+              <h3>Thank you for your response!</h3>
+              <p>We look forward to celebrating with you.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer" class="footer" role="contentinfo">
+      <div class="footer-content">
+        <div class="footer-names">Anh Hoa &amp; Thêu</div>
+        <p class="footer-date">March 15, 2026</p>
+        <div class="footer-hearts" aria-hidden="true">❤ ❤ ❤</div>
+        <p class="footer-message">
+          Thank you for being part of our special day.<br />
+          Your presence means the world to us.
+        </p>
+        <div class="footer-quote">
+          <em>"Two souls with but a single thought, two hearts that beat as one."</em>
+        </div>
+        <p class="footer-copy">&copy; 2026 Anh Hoa &amp; Thêu Wedding</p>
+      </div>
+    </footer>
+
+  </main><!-- /#main-content -->
+
+  <!-- ===== INVITATION COVER (shown first) ===== -->
+  <div id="invitation-cover" class="invitation-cover" aria-label="Wedding invitation cover">
+    <div class="cover-bg"></div>
+    <div class="cover-particles" aria-hidden="true"></div>
+    <div class="cover-content">
+      <div class="cover-decoration top-decoration" aria-hidden="true">🌸 🌿 🌸</div>
+      <p class="cover-sub">You are cordially invited to the wedding of</p>
+      <h1 class="cover-names">
+        <span class="cover-name">Anh Hoa</span>
+        <span class="cover-amp">&amp;</span>
+        <span class="cover-name">Thêu</span>
+      </h1>
+      <p class="cover-date">March 15, 2026 · Hà Nội, Vietnam</p>
+      <div class="cover-divider" aria-hidden="true"></div>
+      <button id="open-invitation-btn" class="open-btn" aria-label="Open wedding invitation">
+        <span class="open-btn-text">Open Invitation</span>
+        <span class="open-btn-icon">💌</span>
+      </button>
+      <div class="cover-decoration bottom-decoration" aria-hidden="true">🌸 🌿 🌸</div>
+    </div>
+  </div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <audio id="audio-player" preload="none" aria-hidden="true"></audio>
+  <script src="js/animations.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
