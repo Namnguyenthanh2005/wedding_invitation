@@ -673,6 +673,20 @@ main {
   position: relative;
   z-index: 2;
 }
+.timeline-icon3 {
+  font-size: 38px;
+  width: 20vw;
+  height: 12vw;
+  display: flex;
+  align-items:right ;
+  justify-content: flex-start;
+  background: #fff;
+ 
+  filter: sepia(0.2) brightness(0.98);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
 
 .timeline-right {
   text-align: left;
