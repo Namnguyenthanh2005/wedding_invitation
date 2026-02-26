@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 
 <head>
@@ -87,11 +87,11 @@
       <div class="detail-panel">
         <div class="panel-crest"><img src="assets/images/detail1.png" loading="lazy" alt="Crest"></div>
         <p class="panel-sub">ĐƯỢC TỔ CHỨC TẠI</p>
-        <h3 class="panel-title">Chateau St. Havel</h3>
+        <h3 class="panel-title">Lý Đông , Kẻ Sặt , Hải Phòng</h3>
         <p class="panel-sub">VÀO LÚC</p>
         <div class="panel-time">11:00</div>
         <div class="panel-date">
-          <span>THỨ BA</span>
+         
           <span class="panel-date-main">23.03.2026</span>
         </div>
         <span class="panel-pin" aria-hidden="true"></span>
@@ -284,11 +284,11 @@
         <p class="dresscode-subtitle">MÀU SẮC TRANG PHỤC</p>
       </div>
       <div class="dresscode-palette">
+        <div class="color-circle" style="background: #ffffff;"></div>
+        <div class="color-circle" style="background: #f8f4ef;"></div>
         <div class="color-circle" style="background: #f5e6d3;"></div>
-        <div class="color-circle" style="background: #d4b5a0;"></div>
-        <div class="color-circle" style="background: #3d3532;"></div>
-        <div class="color-circle" style="background: #5c4a42;"></div>
-        <div class="color-circle" style="background: #e7b7b1;"></div>
+        <div class="color-circle" style="background: #ffc0cb;"></div>
+        <div class="color-circle" style="background: #ffb6c1;"></div>
         <div class="color-circle" style="background: #f2d6d0;"></div>
       </div>
     </section>
@@ -482,6 +482,20 @@
   giftOverlay.addEventListener("click", () => {
     giftPopup.classList.remove("active");
   });
+</script>
+<script>
+  // Lấy đường dẫn hiện tại
+  const currentURL = window.location.href;
+
+  // Kiểm tra xem có chứa "/wedding_invitation/1"
+  let is_check = false;
+  if (currentURL.includes("/wedding_invitation/1")) {
+    is_check = true;
+  }
+
+ 
+
+
 </script>
 </body>
 
