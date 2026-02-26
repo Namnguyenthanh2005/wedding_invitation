@@ -21,9 +21,23 @@ const setPlaying = (isPlaying) => {
 };
 
 if (musicToggle && bgMusic) {
+  localStorage.removeItem(musicStateKey);
   const savedState = localStorage.getItem(musicStateKey);
 
-  if (savedState === null || savedState === "on") {
+  const playOnFirstInteraction = () => {
+    const isPlaying = musicToggle.classList.contains("is-playing");
+    if (!isPlaying) {
+      setPlaying(true);
+    }
+  };
+
+  if (savedState === null) {
+    document.addEventListener("click", playOnFirstInteraction, { once: true });
+    document.addEventListener("touchstart", playOnFirstInteraction, { once: true });
+    document.addEventListener("keydown", playOnFirstInteraction, { once: true });
+  }
+
+  if (savedState === "on") {
     setPlaying(true);
   }
 
