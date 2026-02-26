@@ -87,7 +87,7 @@ main {
 
 .title {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.5rem, 4rem, 4.25rem);
+  font-size: clamp(4.5rem, 4rem, 4.25rem);
   font-weight: 600;
 }
 @media (max-width: 350px) {
@@ -132,11 +132,12 @@ main {
   text-align: center;
   color: #fff;
   padding: 0 20px 48px;
+  margin: 0 auto;
 }
 
 .hero-script {
   font-family: "Great Vibes", cursive;
-  font-size: clamp(4.3rem, 3rem, 5rem);
+  font-size: clamp(4rem, 3.5rem, 5rem);
   font-weight: 200;
   color: rgba(255, 255, 255, 0.95);
   letter-spacing: 0.6px;
@@ -147,9 +148,9 @@ main {
   transform: translateY(6px);
     white-space: nowrap;
 }
-@media (max-width: 360px) {
+@media (max-width: 400px) {
   .hero-script {
-    font-size: clamp(3.6rem, 6vw, 4rem);
+    font-size: 3rem;
   }
   
 }
@@ -650,13 +651,23 @@ transform: translateX(-50%);
   width:3px;
   background: linear-gradient(to bottom, transparent, var(--gold) 5%, var(--gold) 95%, transparent);
 }
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   .timeline-wrapper {
     padding: 0;
   }
   
   .timeline-wrapper::before {
     left: 35%;
+  }
+  
+}
+@media (max-width: 460px) {
+  .timeline-wrapper {
+    padding: 0;
+  }
+  
+  .timeline-wrapper::before {
+    left: 40%;
   }
   
 }
