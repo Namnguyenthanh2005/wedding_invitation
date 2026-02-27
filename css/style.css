@@ -114,7 +114,7 @@ main {
 .hero-media {
   position: absolute;
   inset: 0;
-  background-image: url("../assets/images/anh5.webp");
+  background-image: url("../assets/images/anh1.webp");
   background-size: cover;
   background-position: center 15%;
   filter: saturate(0.95);
@@ -533,7 +533,7 @@ main {
 .calendar {
   color: #fff;
   box-shadow: var(--shadow);
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0)), url("../assets/images/anh5.webp");
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url("../assets/images/anh5.webp");
   background-size: cover;
   background-position: center 15%;  padding: 32px 20px;}
 
@@ -557,7 +557,7 @@ main {
   font-size: 11px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 1);
 }
 
 .calendar-date {
