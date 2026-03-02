@@ -8,6 +8,7 @@
   <title>Thiệp Cưới | Thêu & Cường</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;500;600&display=swap"
@@ -309,15 +310,15 @@
         <div class="gallery-floats" aria-hidden="true">
           <div class="gallery-float float-1">
             <img class="gallery-lazy" style="object-position: cover !important;"
-              src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="assets/images/anh6.webp" alt="" />
+              src="" data-src="assets/images/anh6.webp" alt=""  loading="lazy"/>
           </div>
           <div class="gallery-float float-2">
-            <img class="gallery-lazy" data-src="assets/images/anh8.webp" alt="" />
+            <img class="gallery-lazy" data-src="assets/images/anh8.webp" alt=""  loading="lazy"/>
 
           </div>
           <div class="gallery-float float-3">
-            <img class="gallery-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="assets/images/anh7.webp"
-              alt="" />
+            <img class="gallery-lazy" src="" data-src="assets/images/anh7.webp"
+              alt=""  loading="lazy"/>
           </div>
 
         </div>
@@ -332,17 +333,17 @@
         <div class="gallery-slider-main">
           <button class="gallery-slider-nav prev">&#8249;</button>
 
-          <img id="galleryMainImage" src="assets/images/anh10.webp" class="gallery-slider-image" />
+          <img id="galleryMainImage" src="assets/images/anh10.webp" class="gallery-slider-image"  loading="lazy" />
 
           <button class="gallery-slider-nav next">&#8250;</button>
         </div>
 
         <div class="gallery-slider-thumbs">
-          <img src="assets/images/anh10.webp" class="gallery-slider-thumb active">
-          <img src="assets/images/anh11.webp" class="gallery-slider-thumb">
-          <img src="assets/images/anh12.webp" class="gallery-slider-thumb">
-          <img src="assets/images/anh13.webp" class="gallery-slider-thumb">
-          <img src="assets/images/anh14.webp" class="gallery-slider-thumb">
+          <img src="assets/images/anh10.webp" class="gallery-slider-thumb active" loading="lazy">
+          <img src="assets/images/anh11.webp" loading="lazy" class="gallery-slider-thumb" loading="lazy">
+          <img src="assets/images/anh12.webp" loading="lazy" class="gallery-slider-thumb" loading="lazy">
+          <img src="assets/images/anh13.webp" loading="lazy" class="gallery-slider-thumb" loading="lazy">
+          <img src="assets/images/anh14.webp" loading="lazy" class="gallery-slider-thumb" loading="lazy">
         </div>
 
       </div>
@@ -389,7 +390,7 @@
     <img src="assets/icons/icon-music.png" alt="Music On" class="music-icon music-on">
   </button>
 
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop preload="none">
     <source src="assets/music/wedding-song.mp3" type="audio/mpeg" />
   </audio>
 
@@ -501,3 +502,4 @@
 </body>
 
 </html>
+

@@ -1369,10 +1369,4 @@ height: 3rem;
 
 
 
-@media (min-width: 600px) {
-  body{
-    width: 30vw !important;
-    margin: 0 auto !important;
-    overflow-x: hidden !important;
-  }
-}
+@media (min-width: 600px) { /* Optimized - removed body width restriction */ }
